@@ -1,6 +1,7 @@
-import type {Metadata} from "next";
-import {Nunito} from "next/font/google";
+import type { Metadata } from "next";
+import { Nunito } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/shared/header";
 
 const nunito = Nunito({
     variable: "--font-nunito",
@@ -14,17 +15,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
+    children,
+}: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
         <html lang="en">
-        <body className={`${nunito.className} antialiased`}>
-        <main className='min-h-screen'>
-            {children}
-        </main>
-        </body>
+            <body className={`${nunito.className} antialiased`}>
+                <main className='min-h-screen'>
+                    <Header />
+                    {children}
+                </main>
+            </body>
         </html>
     );
 }
